@@ -1,29 +1,72 @@
-h1{
+body{
+	background-color: #E6E6FA;
+	align-content: center;
+}
+#crear,#centrado{
 	
+	text-align: center;
 }
-div{
-	border: 2px solid black;
-	width: auto;
-	height: auto;
+h1{
+	color: #9370DB;
+	font-size: 5em;
+	text-align: center;
+	font-family: "Latin Modern Roman 10";
+  	font-style: oblique;
 }
+
+
+#inputNombre,#inputApellido,#inputDni,
+#inputBoton,#inputFecha,
+#inputCorreo,#inputArchivo,#inputContras,#inputCheckNomal,
+#inputRadio,#inputReset,#inputEnviar,#inputTelefon,#inputRango,
+#inputUrl,#inputBuscar,#inputSelector{
+	text-decoration: none;
+    padding: 10px;
+    color: #8B008B;
+    background-color: #FAFAD2;
+    border-radius: 6px;
+    border: 1px solid #0016b0;
+}
+
 form{
+
+	background-color: #D8BFD8;
 	border: 0.5px solid black;
 	margin: 5px;
 	padding: 5px;
-	width: auto;
+	width: 30%;
 	height: auto;
+	position: relative;
+	float: left
 }
 input{
 	margin: 5px;
 	width: auto;
 	height: auto;
 }
+
 button{
 	margin: 5px;
 	width: auto;
 	height: auto;
 }
 
-.segundoDiv{
+segundoDiv{
+	text-align: center;
 	border: 2px solid black;
+	width: 30%;
+	height: auto;
+	display: block;
+}
+div>primerDiv{
+	background-color: #fff;
+	text-align: center;
+	border: 2px solid black;
+	width: 30%;
+	height: auto;
+	display: block;
+}
+#crear{
+	text-align: center;
+	font-family: "Gill Sans Extrabold", Helvetica, sans-serif
 }
