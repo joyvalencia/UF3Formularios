@@ -206,7 +206,6 @@ $(document).ready(function(){
 
 		// $(formulario).append(textoParaInput);
 
-
 //ARCHIVO
 		var ElemFile = document.createElement("input");
 		ElemFile.setAttribute("id", "inputArchivo");
