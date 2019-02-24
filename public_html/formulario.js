@@ -16,13 +16,17 @@ $(document).ready(function(){
 		var segundoDiv = document.createElement("div");
 		$(formulario).append(segundoDiv);
 
+		//BORRAR EL FORMULARIO 
+		$(primerDiv).dblclick(function(){
+			$(primerDiv).remove();
+		});
 
 		
 //TIPOS DE INPUTS
 //DATOS DIRECTOS -> NOMBRE 
 		var ElemNombre = document.createElement("input");
 		ElemNombre.setAttribute("id", "inputNombre");
-		ElemNombre.setAttribute("type", "button");
+		ElemNombre.setAttribute("type", "button");		
 		ElemNombre.setAttribute("value", "Nombre");
 		$(segundoDiv).append(ElemNombre);
 
@@ -37,6 +41,7 @@ $(document).ready(function(){
 			$(formulario).append(textoParaInput);
 			//creacion de input para el nombre
 			var inputNombre = document.createElement("input");
+			inputNombre.setAttribute("pattern", "[a-z]{1,15}");
 			$(formulario).append(inputNombre);
 		}
 
@@ -58,12 +63,35 @@ $(document).ready(function(){
 			$(formulario).append(textoParaInput);
 			//creacion del input para poner los apellidos
 			var inputApellido = document.createElement("input");
+			inputApellido.setAttribute("pattern", "[a-z]{1,20}");
 			$(formulario).append(inputApellido);
 
 		}
 
+//DNI
 
-		//button
+		var ElemDni = document.createElement("input");
+		ElemDni.setAttribute("id", "inputDni");
+		ElemDni.setAttribute("type", "button");
+		ElemDni.setAttribute("value", "DNI");
+		$(segundoDiv).append(ElemDni);
+
+		//FUNCTION PARA CREACION DE BOTONES
+		ElemDni.addEventListener("click", crearDni);
+		function crearDni(){
+			//creacion del elemento parrafo para el dni
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("DNI: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input para poner el dni
+			var inputDni = document.createElement("input");
+			inputDni.setAttribute("pattern", '[0-9]{8}-[0-9]{1}');
+			$(formulario).append(inputDni);
+
+		}
+
+//BOTON
 		var ElemButton = document.createElement("input");
 		ElemButton.setAttribute("id", "inputBoton");
 		ElemButton.setAttribute("type", "button");
@@ -74,8 +102,14 @@ $(document).ready(function(){
 		ElemButton.addEventListener("click", crear);
 
 		function crear(){
+			var textoParaBoton = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("DNI: ");
+			(textoParaBoton).append(textoDentroParrafo);
+			$(formulario).append(textoParaBoton);
 			//creacion del elemento boton
-			var botoncito = document.createElement("button");
+			var botoncito = document.createElement("input");
+			botoncito.setAttribute("type","button");
+			botoncito.setAttribute("value", "Boton");
 			$(formulario).append(botoncito);
 		}
 
@@ -83,12 +117,10 @@ $(document).ready(function(){
 
 //CHECKBOX
 		var ElemCheckbox = document.createElement("input");
-		ElemCheckbox.setAttribute("id", "checkNomal");
+		ElemCheckbox.setAttribute("id", "inputCheckNomal");
 		ElemCheckbox.setAttribute("type", "button");
 		ElemCheckbox.setAttribute("value", "Checkbox");
 		$(segundoDiv).append(ElemCheckbox);
-
-
 
 		ElemCheckbox.addEventListener("click", crearCheck);
 		function crearCheck(){
@@ -96,6 +128,7 @@ $(document).ready(function(){
 			var textoDentroParrafo = document.createTextNode("CheckBox: ");
 			(textoParaCheckbox).append(textoDentroParrafo);
 			$(formulario).append(textoParaCheckbox);
+			
 			//creacion del input donde cogerá el valor 
 			var checkBoxNomal = document.createElement("input");
 			checkBoxNomal.setAttribute("id","valorCheckbox")
@@ -162,6 +195,7 @@ $(document).ready(function(){
 			var correo = document.createElement("input");			
 			correo.setAttribute("type", "mail");
 			correo.setAttribute("placeholder", "usuario@gmail.com");
+			correo.setAttribute("pattern","[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}")
 			$(formulario).append(correo);
 		}
 
@@ -262,7 +296,7 @@ $(document).ready(function(){
 
 		//range
 		var ElemRange = document.createElement("input");
-		ElemRange.setAttribute("id", "InputRango");
+		ElemRange.setAttribute("id", "inputRango");
 		ElemRange.setAttribute("type", "button");
 		ElemRange.setAttribute("value", "Rango");
 		$(segundoDiv).append(ElemRange);
@@ -281,7 +315,7 @@ $(document).ready(function(){
 		}
 
 
-		//reset
+//reset
 		var ElemReset = document.createElement("input");
 		ElemReset.setAttribute("id", "inputReset");
 		ElemReset.setAttribute("type", "button");
@@ -340,6 +374,7 @@ $(document).ready(function(){
 			//creacion del input de tipo telefono
 			var telefono = document.createElement("input");
 			telefono.setAttribute("type", "tel");
+			telefono.setAttribute("pattern","[0-9]{9}")
 			$(formulario).append(telefono);
 		}
 
@@ -388,33 +423,57 @@ $(document).ready(function(){
 		}
 
 
-		//select
+//SELECT
+
 		var ElemSelector = document.createElement("input");
-		ElemSelector.setAttribute("id", "inputBuscar");
+		ElemSelector.setAttribute("id", "inputSelector");
 		ElemSelector.setAttribute("type", "button");
 		ElemSelector.setAttribute("value", "Selector");
 		$(segundoDiv).append(ElemSelector);
 
-			//OPCIONES
-			var ElemOpcion = document.createElement("option");
-			ElemOpcion.setAttribute("value", "Selector");
-			$(ElemSelector).append(ElemOpcion);
-
 
 		ElemSelector.addEventListener("click", crearSelect);
-		function crearSelect(){
-			//texto para el input de tipo select
-			var textoParaInput = document.createElement("p");
-			var textoDentroParrafo = document.createTextNode("Opciones: ");
-			(textoParaInput).append(textoDentroParrafo);
-			$(formulario).append(textoParaInput);
-			//creacion del input de tipo select
 
-			var opcion = document.getElementById('opcionUsuario').value;
+		function crearSelect(){
+			var textoParaSelect = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Crea Select: ");
+			(textoParaSelect).append(textoDentroParrafo);
+			$(formulario).append(textoParaSelect);
+
+			//creacion del input que recogerá el valor 
+			var inputValorOpcion = document.createElement("input");
+			inputValorOpcion.setAttribute("id","valorOpcion")
+			$(formulario).append(inputValorOpcion);
+
+
+			//creacion de un nuevo boton para cambiar las opciones
+			var botonParaOpcion = document.createElement("input");
+			botonParaOpcion.setAttribute("type", "button");
+			botonParaOpcion.setAttribute("value","Crear Opciones");
+			$(formulario).append(botonParaOpcion);
+
+
+			//creando las opciones del usuario
+			botonParaOpcion.addEventListener("click", crearOpciones);
+			function crearOpciones(){
+				//cogemos el valor del input
+				var inputOpcion = document.getElementById('valorOpcion').value;
+				//creacion del select
+				var inputSelect = document.createElement("select");
+				inputSelect.setAttribute("id","miSelect");
+				//creacion de las opciones
+				var opcionFinal = document.createElement("option");				
+				opcionFinal.setAttribute("value","#valorOpcion");
+				
+				
+				$(formulario).append(inputSelect);
+				$(inputSelect).append('#miSelect');
+				$('#miSelect').append(opcionFinal);
+				$(opcionFinal).append(inputOpcion);
+				
+			}
+
 			
-			var seleccion = document.createElement("input");
-			seleccion.setAttribute("type", "select");
-			$(formulario).append(seleccion);
 		}
 
 	});
