@@ -86,6 +86,7 @@ $(document).ready(function(){
 			$(formulario).append(textoParaInput);
 			//creacion del input para poner el dni
 			var inputDni = document.createElement("input");
+			inputDni.setAttribute("type","input");
 			inputDni.setAttribute("pattern", '[0-9]{8}-[0-9]{1}');
 			$(formulario).append(inputDni);
 
@@ -103,7 +104,7 @@ $(document).ready(function(){
 
 		function crear(){
 			var textoParaBoton = document.createElement("p");
-			var textoDentroParrafo = document.createTextNode("DNI: ");
+			var textoDentroParrafo = document.createTextNode("Botón: ");
 			(textoParaBoton).append(textoDentroParrafo);
 			$(formulario).append(textoParaBoton);
 			//creacion del elemento boton
@@ -205,6 +206,7 @@ $(document).ready(function(){
 		// (textoParaInput).append(textoDentroParrafo);
 
 		// $(formulario).append(textoParaInput);
+
 
 //ARCHIVO
 		var ElemFile = document.createElement("input");
