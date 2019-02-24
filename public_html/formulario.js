@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$("button").click(function(){
-		//valor que cogemos del input 
+//valor que cogemos del input 
 		var valorNombre = document.getElementById('crear').value;
 		var saltoLinea = document.createElement("br");
 		$(segundoDiv).append(saltoLinea);
@@ -18,7 +18,51 @@ $(document).ready(function(){
 
 
 		
-		//tipos de inputs
+//TIPOS DE INPUTS
+//DATOS DIRECTOS -> NOMBRE 
+		var ElemNombre = document.createElement("input");
+		ElemNombre.setAttribute("id", "inputNombre");
+		ElemNombre.setAttribute("type", "button");
+		ElemNombre.setAttribute("value", "Nombre");
+		$(segundoDiv).append(ElemNombre);
+
+			//FUNCTION PARA CREACION DE BOTONES
+
+		ElemNombre.addEventListener("click", crearNombre);
+		function crearNombre(){
+			//parrafo
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Nombre: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion de input para el nombre
+			var inputNombre = document.createElement("input");
+			$(formulario).append(inputNombre);
+		}
+
+
+//DATOS DIRECTOS -> APELLIDO 
+		var ElemApellido = document.createElement("input");
+		ElemApellido.setAttribute("id", "inputApellido");
+		ElemApellido.setAttribute("type", "button");
+		ElemApellido.setAttribute("value", "Apellido");
+		$(segundoDiv).append(ElemApellido);
+
+		//FUNCTION PARA CREACION DE BOTONES
+		ElemApellido.addEventListener("click", crearApellido);
+		function crearApellido(){
+			//creacion del elemento parrafo
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Apellidos: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input para poner los apellidos
+			var inputApellido = document.createElement("input");
+			$(formulario).append(inputApellido);
+
+		}
+
+
 		//button
 		var ElemButton = document.createElement("input");
 		ElemButton.setAttribute("id", "inputBoton");
@@ -30,6 +74,7 @@ $(document).ready(function(){
 		ElemButton.addEventListener("click", crear);
 
 		function crear(){
+			//creacion del elemento boton
 			var botoncito = document.createElement("button");
 			$(formulario).append(botoncito);
 		}
@@ -46,12 +91,17 @@ $(document).ready(function(){
 
 		ElemCheckbox.addEventListener("click", crearCheck);
 		function crearCheck(){
+			var textoParaCheckbox = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("CheckBox: ");
+			(textoParaCheckbox).append(textoDentroParrafo);
+			$(formulario).append(textoParaCheckbox);
+
 			var checkBoxNomal = document.createElement("input");
 			checkBoxNomal.setAttribute("type", "checkbox");
 			$(formulario).append(checkBoxNomal);
 		}
 
-		//date
+//FECHA
 		var ElemDate = document.createElement("input");
 		ElemDate.setAttribute("id", "inputFecha");
 		ElemDate.setAttribute("type", "button");
@@ -59,7 +109,14 @@ $(document).ready(function(){
 		$(segundoDiv).append(ElemDate);
 
 		ElemDate.addEventListener("click", crearFecha);
+
 		function crearFecha(){
+			//parrafo para fecha
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Fecha: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del nuevo input de tipo fecha
 			var fecha = document.createElement("input");
 			fecha.setAttribute("type", "date");
 			$(formulario).append(fecha);
@@ -76,12 +133,12 @@ $(document).ready(function(){
 
 		ElemEmail.addEventListener("click", crearEmail);
 		function crearEmail(){
-			
+			//texto para el input del correo
 			var textoParaInput = document.createElement("p");
 			var textoDentroParrafo = document.createTextNode("Correo: ");
 			(textoParaInput).append(textoDentroParrafo);
-
 			$(formulario).append(textoParaInput);
+			//creacion del input de tipo correo
 			var correo = document.createElement("input");			
 			correo.setAttribute("type", "mail");
 			correo.setAttribute("placeholder", "usuario@gmail.com");
@@ -96,7 +153,7 @@ $(document).ready(function(){
 		// $(formulario).append(textoParaInput);
 
 
-		//file
+//ARCHIVO
 		var ElemFile = document.createElement("input");
 		ElemFile.setAttribute("id", "inputArchivo");
 		ElemFile.setAttribute("type", "button");
@@ -105,6 +162,12 @@ $(document).ready(function(){
 		
 		ElemFile.addEventListener("click", crearArchivo);
 		function crearArchivo(){
+			//texto para el input de tipo archivo
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Archivo: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo archivo
 			var archivo = document.createElement("input");
 			archivo.setAttribute("type", "file");
 			$(formulario).append(archivo);
@@ -122,13 +185,19 @@ $(document).ready(function(){
 
 		ElemPassword.addEventListener("click", crearContrassenya);
 		function crearContrassenya(){
+			//texto para el input de tipo contraseña
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Contraseña: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo contraseña
 			var contrassenya = document.createElement("input");
 			contrassenya.setAttribute("type", "password");
 			$(formulario).append(contrassenya);
 		}
 
 
-		//radio
+//RADIO EN GENERO
 		var ElemRadio = document.createElement("input");
 		ElemRadio.setAttribute("id", "inputRadio");
 		ElemRadio.setAttribute("type", "button");
@@ -137,11 +206,39 @@ $(document).ready(function(){
 
 		ElemRadio.addEventListener("click", crearRadio);
 		function crearRadio(){
-			var radio = document.createElement("input");
-			radio.setAttribute("type", "radio");
-			$(formulario).append(radio);
-		}
+			//TEXTO DEL RADIO ->GENERO
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Género: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
 
+			//TEXTO DEL RADIO ->GENERO FEMENINO
+			var textoParaFemenino = document.createElement("p");
+			var textoFemenino = document.createTextNode("Femenino ");
+			(textoParaFemenino).append(textoFemenino);
+			$(formulario).append(textoParaFemenino);
+
+			//creacion del input de tipo radio femenino
+			var radioF = document.createElement("input");
+			radioF.setAttribute("type","radio");
+			radioF.setAttribute("id","radioFem");
+			radioF.setAttribute("name","genero");
+			$(textoParaFemenino).append(radioF);
+
+
+			//TEXTO DEL RADIO ->GENERO MASCULINO
+			var textoParaMasculino = document.createElement("p");
+			var textoMasculino = document.createTextNode("Masculino ");
+			(textoParaMasculino).append(textoMasculino);
+			$(formulario).append(textoParaMasculino);
+
+			//creacion del input de tipo radio femenino
+			var radioM = document.createElement("input");
+			radioM.setAttribute("type","radio");
+			radioM.setAttribute("id","radioMas");
+			radioM.setAttribute("name","genero");
+			$(textoParaMasculino).append(radioM);
+		}
 
 		//range
 		var ElemRange = document.createElement("input");
@@ -152,6 +249,12 @@ $(document).ready(function(){
 
 		ElemRange.addEventListener("click", crearRange);
 		function crearRange(){
+			//texto para el input de tipo rango
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Rango: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo rango
 			var rango = document.createElement("input");
 			rango.setAttribute("type", "range");
 			$(formulario).append(rango);
@@ -167,6 +270,12 @@ $(document).ready(function(){
 
 		ElemReset.addEventListener("click", crearReset);
 		function crearReset(){
+			//texto para el input de tipo reset
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Restablece: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo reset
 			var restablece = document.createElement("input");
 			restablece.setAttribute("type", "reset");
 			$(formulario).append(restablece);
@@ -182,6 +291,12 @@ $(document).ready(function(){
 
 		ElemSubmit.addEventListener("click", crearEnviar);
 		function crearEnviar(){
+			//texto para el input de tipo submit
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Botón de enviar: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo submit
 			var enviar = document.createElement("input");
 			enviar.setAttribute("type", "submit");
 			$(formulario).append(enviar);
@@ -197,6 +312,12 @@ $(document).ready(function(){
 
 		ElemTel.addEventListener("click", crearTelefono);
 		function crearTelefono(){
+			//texto para el input de tipo telefon
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Telefono: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo telefono
 			var telefono = document.createElement("input");
 			telefono.setAttribute("type", "tel");
 			$(formulario).append(telefono);
@@ -212,6 +333,12 @@ $(document).ready(function(){
 
 		ElemUrl.addEventListener("click", crearUrl);
 		function crearUrl(){
+			//texto para el input de tipo url
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Dirección Url: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo url
 			var direccionUrl = document.createElement("input");
 			direccionUrl.setAttribute("type", "url");
 			direccionUrl.setAttribute("placeholder", "https://www.google.com/");
@@ -226,8 +353,14 @@ $(document).ready(function(){
 		ElemBuscador.setAttribute("value", "Buscador");
 		$(segundoDiv).append(ElemBuscador);
 		
-		ElemBuscador.addEventListener("click", crearTelefono);
-		function crearTelefono(){
+		ElemBuscador.addEventListener("click", crearBuscador);
+		function crearBuscador(){
+			//texto para el input de tipo search
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Buscador: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo search
 			var buscar = document.createElement("input");
 			buscar.setAttribute("type", "search");
 			buscar.setAttribute("placeholder", "Buscar");
@@ -250,6 +383,13 @@ $(document).ready(function(){
 
 		ElemSelector.addEventListener("click", crearSelect);
 		function crearSelect(){
+			//texto para el input de tipo select
+			var textoParaInput = document.createElement("p");
+			var textoDentroParrafo = document.createTextNode("Opciones: ");
+			(textoParaInput).append(textoDentroParrafo);
+			$(formulario).append(textoParaInput);
+			//creacion del input de tipo select
+
 			var opcion = document.getElementById('opcionUsuario').value;
 			
 			var seleccion = document.createElement("input");
