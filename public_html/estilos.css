@@ -1,11 +1,15 @@
+h1{
+	
+}
 div{
 	border: 2px solid black;
 	width: auto;
 	height: auto;
 }
 form{
-	border: 1px solid black;
+	border: 0.5px solid black;
 	margin: 5px;
+	padding: 5px;
 	width: auto;
 	height: auto;
 }
@@ -19,6 +23,7 @@ button{
 	width: auto;
 	height: auto;
 }
-p,h3{
-	padding: 5px;
+
+.segundoDiv{
+	border: 2px solid black;
 }
