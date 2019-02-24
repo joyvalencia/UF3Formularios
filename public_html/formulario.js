@@ -81,12 +81,13 @@ $(document).ready(function(){
 
 		
 
-		//checkbox
+//CHECKBOX
 		var ElemCheckbox = document.createElement("input");
 		ElemCheckbox.setAttribute("id", "checkNomal");
 		ElemCheckbox.setAttribute("type", "button");
 		ElemCheckbox.setAttribute("value", "Checkbox");
 		$(segundoDiv).append(ElemCheckbox);
+
 
 
 		ElemCheckbox.addEventListener("click", crearCheck);
@@ -95,10 +96,29 @@ $(document).ready(function(){
 			var textoDentroParrafo = document.createTextNode("CheckBox: ");
 			(textoParaCheckbox).append(textoDentroParrafo);
 			$(formulario).append(textoParaCheckbox);
-
+			//creacion del input donde cogerá el valor 
 			var checkBoxNomal = document.createElement("input");
-			checkBoxNomal.setAttribute("type", "checkbox");
+			checkBoxNomal.setAttribute("id","valorCheckbox")
 			$(formulario).append(checkBoxNomal);
+
+			
+			//creacion del nuevo boton para que cree los checks  
+			var nuevoBotonParaCheck = document.createElement("input");
+			nuevoBotonParaCheck.setAttribute("type","button");
+			nuevoBotonParaCheck.setAttribute("value","Crea Chexbox");
+			$(formulario).append(nuevoBotonParaCheck);
+
+			//nueva funcion para crear los checks con su nombre elegido por el usuario
+			nuevoBotonParaCheck.addEventListener("click", crearNuevosChecks);
+			function crearNuevosChecks(){
+				var checkBoxNomal = document.getElementById('valorCheckbox').value;
+				var checkFinal = document.createElement("input");
+				checkFinal.setAttribute("type","checkbox");
+				checkFinal.setAttribute("value","#valorCheckbox");
+				$(formulario).append(checkBoxNomal);
+				$(formulario).append(checkFinal);
+			}
+
 		}
 
 //FECHA
